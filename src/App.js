@@ -1,41 +1,34 @@
 import React, { Component } from 'react';
-import NavBar from './components/NavBar';
-import ExploreWindow from './components/ExploreWindow';
-import Oups from './components/Oups';
-import AccountSettingsWindow from './components/AccountSettingsWindow';
 import logo from './logo.svg';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import { Grid } from 'react-bootstrap';
+import MainWindow from './components/MainWindow'
+import NavBar from './components/NavBar';
+import Oups from './components/Oups';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      main: 'explore'
-    }
-  }
-
-  getMainWindow(){
-    console.log(this.state.main);
-    switch(this.state.main){
-      case 'explore':
-        return <ExploreWindow />
-        break;
-      case 'account_settings':
-        return <AccountSettingsWindow />
-        break;
-      default:
-        return <Oups />
-    }
-  }
 
   render() {
     return (
-      <div className="App">
+      <Router>
+        <div className="App">
         <NavBar />
-        {this.getMainWindow()}
-      </div>
-    );
+        <Grid>
+          <Switch>
+            <Route exact path='/explore' component={Oups}/>
+            <Route exact path='/account_settings' component={Oups}/>
+            <Route exact path='/sign_out' component={Oups}/>
+            <Route path='/' component={MainWindow}/>
+          </Switch>
+        </Grid>
+        </div>
+      </Router>
+    )
   }
 }
 
