@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
-import MainWindow from './components/MainWindow'
 import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Explore from './components/Explore';
 import Oups from './components/Oups';
 import {
   BrowserRouter as Router
@@ -20,10 +21,11 @@ class App extends Component {
         <NavBar />
         <Grid>
           <Switch>
-            <Route exact path='/explore' component={Oups}/>
+            <Route exact path='/home' component={Home}/>
+            <Route exact path='/explore' component={Explore}/>
             <Route exact path='/account_settings' component={Oups}/>
             <Route exact path='/sign_out' component={Oups}/>
-            <Route path='/' component={MainWindow}/>
+            <Route path='/' component={Oups}/>
           </Switch>
         </Grid>
         </div>
