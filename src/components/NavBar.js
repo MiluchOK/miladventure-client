@@ -20,8 +20,13 @@ class NavBar extends Component{
           </LinkContainer>
 
           <NavDropdown eventKey={3} title="Adventure" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}>New</MenuItem>
-            <MenuItem eventKey={3.2}>Find</MenuItem>
+            <LinkContainer to='/new'>
+              <MenuItem eventKey={3.1}>New</MenuItem>
+            </LinkContainer>
+
+            <LinkContainer to='/find'>
+              <MenuItem eventKey={3.2}>Find</MenuItem>
+            </LinkContainer>
           </NavDropdown>
         </Nav>
         <Nav pullRight>
