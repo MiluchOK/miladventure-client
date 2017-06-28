@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path='/explore' component={Explore}/>
             <Route exact path='/account_settings' component={Oups}/>
             <Route exact path='/sign_out' component={Oups}/>
-            <Route path='/' component={Oups}/>
+            <Route path='/' component={Home}/>
           </Switch>
         </Grid>
         </div>
